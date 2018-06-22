@@ -1,0 +1,32 @@
+#!/bin/bash
+echo ""
+echo this is temp function
+
+temp() {
+        read -p "Enter a name for template: " templateName || $1
+        read -p "Enter a description for template (optional): " desc || $3
+
+    if [[ -z $templateName ]]
+    then
+        echo 'name is empty'
+        read -p "you must enter a folder name, enter q to exit" templateName
+        echo ''
+    elif [[ $templateName == 'q' ]]
+    then
+        echo 'exiting'
+    elif [[ -n $templateName ]]
+    then
+        echo ''
+        cd Templates/new/
+        mkdir $templateName
+        touch ./$templateName/$templateName.html
+        printf '%s' $desc > ./$templateName/$templateName.txt
+        nano ./$templateName/$templateName.html
+        echo ''
+    else
+        echo 'something went wrong'
+    fi
+}
+temp
+
+

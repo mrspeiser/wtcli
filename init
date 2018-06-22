@@ -19,6 +19,7 @@ then
     echo ""
     echo $mode mode initialized
     echo ""
+    ./fbin/create
 elif [[ $mode == 'develop' ]]
 then 
     echo ""    

@@ -1,0 +1,27 @@
+#!/bin/bash
+echo ""
+echo this is create new html file with css and js
+read -p "Enter a name for folder: " fName
+read -p "Enter a name for files (optional): " fileName
+cd $(pwd)
+
+if [[ -z $fName ]]
+then
+    echo 'name is empty'
+    read -p "you must enter a folder name, enter q to exit" fName
+    echo ''
+elif [[ $fName = 'q' ]]
+then
+    echo 'exiting'
+elif [[ -n $fileName ]]
+then 
+    mkdir $fName
+    touch ./$fName/$fileName.html
+    touch ./$fName/$fileName.css
+    touch ./$fName/$fileName.js
+else
+    mkdir $fName
+    touch ./$fName/index.html
+    touch ./$fName/index.css
+    touch ./$fName/index.js
+fi

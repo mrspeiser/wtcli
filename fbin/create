@@ -1,2 +1,17 @@
 #!/bin/bash
-echo this is the create fn
+
+echo ""
+
+echo -e '\x1B[0mhere are the possible commands:'
+echo -e ""
+echo -e '\x1B[1mtemp \x1B[92m(Create new html template file to be written into other files)\x1B[0m'
+echo -e '\x1B[1mhtml \x1B[92m(Create a new project with html css and js file)\x1B[0m'
+echo -e '\x1B[1mreact-app \x1B[92m(Create new react app with create-react-app ____)\x1B[0m'
+echo -e '\x1B[1mangular-app \x1B[92m(Create new Angular app with ng new ____)\x1B[0m'
+echo ""
+echo -e '\x1B[1mrcomp \x1B[92m(Save new react component template)\x1B[0m'
+echo -e '\x1B[1macomp \x1B[92m(Save new angular component)\x1B[0m'
+echo ""
+read -p "enter command: " create
+./fbin/$create
+echo ""
