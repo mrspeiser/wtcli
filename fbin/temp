@@ -1,23 +1,107 @@
 #!/bin/bash
 echo ""
 echo this is temp function
-
+echo ""
 temp() {
         read -p "Enter a name for template: " templateName || $1
-        read -p "Enter a description for template (optional): " desc || $3
+        read -p "Enter a description for template (optional): " desc || $2
+        read -p "add to an existing collection? Leave blank to add to default collection: " folder || $3
 
+    #if field 1 is empty
     if [[ -z $templateName ]]
     then
-        echo 'name is empty'
-        read -p "you must enter a folder name, enter q to exit" templateName
+        echo 'template name is empty'
+        echo -e "you must enter a folder name, enter q to exit" 
         echo ''
+        temp
+    #if field 1 == q, quit 
     elif [[ $templateName == 'q' ]]
     then
         echo 'exiting'
-    elif [[ -n $templateName ]]
+    #if templateName exists in default location
+    elif [[ -d Templates/new/"$templateName" ]]
     then
-        echo ''
-        cd Templates/new/
+        #if foldername isn't empty and exists
+        if [[ -n $folder && -d Templates/"$folder" ]]
+        then 
+            #check if template name exists in it
+            if [[ -d Templates/"$folder"/"$templateName" ]]
+            then
+                echo ''
+                echo "Template name already exists in folder"
+                echo ''
+            else
+                #collection (folder) field isn't empty, it exists, and template name has no match
+                    cd Templates/"$folder"
+                    mkdir $templateName
+                    touch ./$templateName/$templateName.html
+                    printf '%s' $desc > ./$templateName/$templateName.txt
+                    nano ./$templateName/$templateName.html
+                    echo ''
+            fi
+        #if foldername isn't empty and does not exist
+        elif [[ -n $folder ]] && [[ ! -d Templates/"$folder"  ]]
+        then
+            read -p "Could not find that collection, Would you like to create a new template collection, Y or N? " folderBool
+            #if user confirms they want a new collection
+            if [[ "$folderBool" == 'y' || 'Y' || 'yes' || "Yes" ]]
+            then 
+                #create collection name and add template to collection
+                cd Templates/
+                mkdir $folder && mkdir ./$folder/$templateName
+                touch ./$folder/$templateName/$templateName.html
+                printf '%s' $desc > ./$folder/$templateName/$templateName.txt
+                nano ./$folder/$templateName/$templateName.html
+                echo ''
+            else
+                echo ''
+                echo "Template name already exists in the default folder, please choose a new template name"
+                echo ''
+                temp
+            fi
+        else
+            echo ''
+            echo "Template name already exists in folder"
+            echo ''
+            temp
+        fi
+        
+    #if collections folder does not exist or field is empty
+    elif [[ ! -d Templates/"$folder" ]] || [[ -z $folder ]]
+    then
+        echo ""
+        read -p "Could not find that collection, Would you like to create a new template collection, Y or N? " folderBool
+        #if user confirms they want a new collection
+        if [[ "$folderBool" == 'y' || 'Y' || 'yes' || "Yes" ]]
+        then 
+            #create collection name and add template to collection
+            # read -p "enter new name for collection of templates" collectionName
+            cd Templates/
+            mkdir $folder
+            mkdir ./$folder/$templateName
+            touch ./$folder/$templateName/$templateName.html
+            printf '%s' $desc > ./$folder/$templateName/$templateName.txt
+            nano ./$folder/$templateName/$templateName.html
+            echo ''
+        else
+            #user does not want to have template in collection, add to new folder
+            cd Templates/new/
+            mkdir $templateName
+            touch ./$templateName/$templateName.html
+            printf '%s' $desc > ./$templateName/$templateName.txt
+            nano ./$templateName/$templateName.html
+            echo ''
+        fi
+    #if collections folder exists and template name already exists
+    elif [[ -d Templates/"$folder" && -d Templates/"$folder"/"$templateName" ]]
+    then 
+        #restart process
+        echo "That template name already exists in the collection, please choose a new name "
+        temp
+    #if collections folder exists and template name does not exist
+    elif [[ -d Template/"$folder"  ]] && [[ ! -d Templates/"$folder"/"$templateName" ]]
+    then 
+        cd Templates/"$folder"
         mkdir $templateName
         touch ./$templateName/$templateName.html
         printf '%s' $desc > ./$templateName/$templateName.txt
@@ -26,6 +110,8 @@ temp() {
     else
         echo 'something went wrong'
     fi
+
+    # ./fbin/create
 }
 temp
 
