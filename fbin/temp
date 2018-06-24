@@ -35,7 +35,7 @@ temp() {
                     cd Templates/"$folder"
                     mkdir $templateName
                     touch ./$templateName/$templateName.html
-                    printf '%s' $desc > ./$templateName/$templateName.txt
+                    echo $desc > ./$templateName/$templateName.txt
                     nano ./$templateName/$templateName.html
                     echo ''
             fi
@@ -50,7 +50,7 @@ temp() {
                 cd Templates/
                 mkdir $folder && mkdir ./$folder/$templateName
                 touch ./$folder/$templateName/$templateName.html
-                printf '%s' $desc > ./$folder/$templateName/$templateName.txt
+                echo $desc > ./$folder/$templateName/$templateName.txt
                 nano ./$folder/$templateName/$templateName.html
                 echo ''
             else
@@ -80,7 +80,7 @@ temp() {
             mkdir $folder
             mkdir ./$folder/$templateName
             touch ./$folder/$templateName/$templateName.html
-            printf '%s' $desc > ./$folder/$templateName/$templateName.txt
+            echo $desc > ./$folder/$templateName/$templateName.txt
             nano ./$folder/$templateName/$templateName.html
             echo ''
         else
@@ -88,7 +88,7 @@ temp() {
             cd Templates/new/
             mkdir $templateName
             touch ./$templateName/$templateName.html
-            printf '%s' $desc > ./$templateName/$templateName.txt
+            echo $desc > ./$templateName/$templateName.txt
             nano ./$templateName/$templateName.html
             echo ''
         fi
@@ -99,20 +99,24 @@ temp() {
         echo "That template name already exists in the collection, please choose a new name "
         temp
     #if collections folder exists and template name does not exist
-    elif [[ -d Template/"$folder"  ]] && [[ ! -d Templates/"$folder"/"$templateName" ]]
-    then 
+    #this currently isn't working, i dont know why, removed for now and will default to else statement
+    # elif [[ -d Template/"$folder"  ]] && [[ ! -d Templates/"$folder"/"$templateName" ]]
+    # then 
+    #     cd Templates/"$folder"
+    #     mkdir $templateName
+    #     touch ./$templateName/$templateName.html
+    #     echo $desc > ./$templateName/$templateName.txt
+    #     nano ./$templateName/$templateName.html
+    #     echo ''
+    else
         cd Templates/"$folder"
         mkdir $templateName
         touch ./$templateName/$templateName.html
-        printf '%s' $desc > ./$templateName/$templateName.txt
+        echo $desc > ./$templateName/$templateName.txt
         nano ./$templateName/$templateName.html
         echo ''
-    else
-        echo 'something went wrong'
     fi
 
-    # ./fbin/create
+    ../../fbin/create
 }
 temp
-
-

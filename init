@@ -11,6 +11,7 @@ echo -e '\x1B[1mcreate \x1B[92m(Create something that doesnt exist yet)\x1B[0m'
 echo -e '\x1B[1mdevelop \x1B[92m(Develop or modify files with existing templates/code)\x1B[0m'
 echo -e '\x1B[1mdeploy \x1B[92m(Deploy Project or login to a server or deploy with docker)\x1B[0m'
 echo ""
+echo -e 'Type q to quit'
 
 read -p 'enter mode: ' mode
 
@@ -30,8 +31,14 @@ then
     echo ""
     echo $mode mode started
     echo ""
+elif [[ $mode == 'q' ]]
+then
+    echo ""
+    echo "See You Later!"
+    echo ""
 else
     echo ""
     echo 'Input was not valid, please check your input spelling'
     echo ""
+    ./init
 fi
