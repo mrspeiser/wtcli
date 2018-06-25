@@ -1,0 +1,7 @@
+#!/bin/bash
+
+appendfromto() {
+    fromfilePath=$1
+    tofilePath=$2
+}
+appendfromto $1 $2

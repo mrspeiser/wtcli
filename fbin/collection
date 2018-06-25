@@ -1,0 +1,22 @@
+#!/bin/bash
+
+createCollection() {
+    echo " "
+    echo -e "to list all collections type 'ls' "
+    read -p "enter name of new collection: " name;
+
+    if [[ -d ~/scripts/wtcli/Templates/$name ]]
+    then 
+        echo "Collection name already exists"
+        ~/scripts/wtcli/fbin/create
+    elif [[ $name == 'ls' ]]
+    then 
+        ls ~/scripts/wtcli/Templates/
+        ~/scripts/wtcli/fbin/create
+    else 
+        cd ~/scripts/wtcli/Templates/
+        mkdir $name
+        ~/scripts/wtcli/fbin/create
+    fi
+}
+createCollection

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+setcollection() {
+    ls ~/scripts/wtcli/Templates/
+    read -p "Enter a collection name of templates to work with " name || $1
+    echo $name > ~/scripts/wtcli/env/setcollection.txt
+}
+setcollection $1

@@ -1,3 +1,17 @@
 #!/bin/bash
-echo this is the create fn
-echo this is the develop fn
+
+develop() {
+    
+    echo "development mode started"
+    pwd
+    read input
+    if [[ $input == 'q' ]]
+    then
+        echo "exiting back"
+        ~/scripts/wtcli/wtcli
+    else
+        ~/scripts/wtcli/fbin/fdev/$input
+        ~/scripts/wtcli/fbin/develop
+    fi
+}
+develop
