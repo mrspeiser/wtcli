@@ -3,21 +3,26 @@ echo ""
 echo this is temp function
 echo ""
 temp() {
+    workingDir=$(pwd)
+
         read -p "Enter a name for template: " templateName || $1
         read -p "Enter a description for template (optional): " desc || $2
-        read -p "add to an existing collection? Leave blank to add to default collection: " folder || $3
+        read -p "Add to an existing collection? Leave blank to add to default collection: " folder || $3
 
     #if field 1 is empty
     if [[ -z $templateName ]]
     then
+        echo ''
         echo 'template name is empty'
-        echo -e "you must enter a folder name, enter q to exit" 
+        echo -e "you must enter a folder name, enter letter q for template name to exit back to previous options" 
         echo ''
         temp
     #if field 1 == q, quit 
     elif [[ $templateName == 'q' ]]
     then
         echo 'exiting'
+        cd $workingDir
+        ./fbin/create
     #if templateName exists in default location
     elif [[ -d Templates/new/"$templateName" ]]
     then
@@ -66,11 +71,11 @@ temp() {
             temp
         fi
         
-    #if collections folder does not exist or field is empty
-    elif [[ ! -d Templates/"$folder" ]] || [[ -z $folder ]]
+    #if field is empty collections or folder does not exist
+    elif [[ -z $folder ]] 
     then
         echo ""
-        read -p "Could not find that collection, Would you like to create a new template collection, Y or N? " folderBool
+        read -p "You have not selected a collection of templates, add to default folder, Y or N? " folderBool
         #if user confirms they want a new collection
         if [[ "$folderBool" == 'y' || 'Y' || 'yes' || "Yes" ]]
         then 
@@ -98,16 +103,6 @@ temp() {
         #restart process
         echo "That template name already exists in the collection, please choose a new name "
         temp
-    #if collections folder exists and template name does not exist
-    #this currently isn't working, i dont know why, removed for now and will default to else statement
-    # elif [[ -d Template/"$folder"  ]] && [[ ! -d Templates/"$folder"/"$templateName" ]]
-    # then 
-    #     cd Templates/"$folder"
-    #     mkdir $templateName
-    #     touch ./$templateName/$templateName.html
-    #     echo $desc > ./$templateName/$templateName.txt
-    #     nano ./$templateName/$templateName.html
-    #     echo ''
     else
         cd Templates/"$folder"
         mkdir $templateName
@@ -116,7 +111,8 @@ temp() {
         nano ./$templateName/$templateName.html
         echo ''
     fi
-
-    ../../fbin/create
+    echo $workingDir
+    cd $workingDir
+    ./fbin/create
 }
 temp

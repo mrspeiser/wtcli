@@ -13,12 +13,13 @@ create() {
     echo -e '\x1B[1mrcomp \x1B[92m(Save new react component template)\x1B[0m'
     echo -e '\x1B[1macomp \x1B[92m(Save new angular component template)\x1B[0m'
     echo ""
-    read -p "enter command (enter q to exit): " create
+    read -p "enter command (enter q to exit back to previous menu): " create
     if [[ $create == 'q' ]]
     then
         echo ""
         echo "exiting"
         echo ""
+        ./init
     else 
         ./fbin/$create
         echo ""
