@@ -1,0 +1,10 @@
+#!/bin/bash
+
+angular-app() {
+    ng new $1
+    echo ''
+    echo 'finished'
+    ls
+    ~/scripts/wtcli/fbin/create
+}
+angular-app $1

@@ -7,9 +7,8 @@ cd $(pwd)
 
 if [[ -z $fName ]]
 then
-    echo 'name is empty'
-    read -p "you must enter a folder name, enter q to exit" fName
-    echo ''
+    echo 'name is empty, you must enter a folder name'
+    ~/scripts/wtcli/fbin/html
 elif [[ $fName = 'q' ]]
 then
     echo 'exiting'
@@ -19,9 +18,13 @@ then
     touch ./$fName/$fileName.html
     touch ./$fName/$fileName.css
     touch ./$fName/$fileName.js
+    ls
+    ~/scripts/wtcli/fbin/create
 else
     mkdir $fName
     touch ./$fName/index.html
     touch ./$fName/index.css
     touch ./$fName/index.js
+    ls
+    ~/scripts/wtcli/fbin/create
 fi
