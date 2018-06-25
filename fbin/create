@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 create() {
     echo ""
 
@@ -19,10 +20,16 @@ create() {
         echo ""
         echo "exiting"
         echo ""
-        ./init
-    else 
-        ./fbin/$create
+        ~/scripts/wtcli/wtcli
+    elif [[ $create == 'temp' ]]
+    then
         echo ""
+        ~/scripts/wtcli/fbin/temp
+        echo ""
+    else 
+        # ~/scripts/wtcli/fbin/"$create"
+        echo "something went wrong"
+
     fi
 }
 create

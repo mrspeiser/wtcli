@@ -1,7 +1,11 @@
 #!/bin/bash
-echo ""
-echo this is temp function
-echo ""
+
+# . ~/scripts/wtcli/fbin/temp
+
+# echo ""
+# echo this is temp function
+# echo ""
+
 temp() {
     workingDir=$(pwd)
 
@@ -16,28 +20,28 @@ temp() {
         echo 'template name is empty'
         echo -e "you must enter a folder name, enter letter q for template name to exit back to previous options" 
         echo ''
-        temp
+        ~/scripts/wtcli/fbin/temp
     #if field 1 == q, quit 
     elif [[ $templateName == 'q' ]]
     then
         echo 'exiting'
         cd $workingDir
-        ./fbin/create
+        ~/scripts/wtcli/fbin/create
     #if templateName exists in default location
-    elif [[ -d Templates/new/"$templateName" ]]
+    elif [[ -d ~/scripts/wtcli/Templates/new/"$templateName" ]]
     then
         #if foldername isn't empty and exists
-        if [[ -n $folder && -d Templates/"$folder" ]]
+        if [[ -n $folder && -d ~/scripts/wtcli/Templates/"$folder" ]]
         then 
             #check if template name exists in it
-            if [[ -d Templates/"$folder"/"$templateName" ]]
+            if [[ -d ~/scripts/wtcli/Templates/"$folder"/"$templateName" ]]
             then
                 echo ''
                 echo "Template name already exists in folder"
                 echo ''
             else
                 #collection (folder) field isn't empty, it exists, and template name has no match
-                    cd Templates/"$folder"
+                    cd ~/scripts/wtcli/Templates/"$folder"
                     mkdir $templateName
                     touch ./$templateName/$templateName.html
                     echo $desc > ./$templateName/$templateName.txt
@@ -45,14 +49,17 @@ temp() {
                     echo ''
             fi
         #if foldername isn't empty and does not exist
-        elif [[ -n $folder ]] && [[ ! -d Templates/"$folder"  ]]
+        elif [[ -n $folder ]] && [[ ! -d ~/scripts/wtcli/Templates/"$folder"  ]]
         then
             read -p "Could not find that collection, Would you like to create a new template collection, Y or N? " folderBool
             #if user confirms they want a new collection
             if [[ "$folderBool" == 'y' || 'Y' || 'yes' || "Yes" ]]
             then 
                 #create collection name and add template to collection
-                cd Templates/
+
+                cd ~/scripts/wtcli/Templates/
+                echo 'checking pwd'
+                pwd
                 mkdir $folder && mkdir ./$folder/$templateName
                 touch ./$folder/$templateName/$templateName.html
                 echo $desc > ./$folder/$templateName/$templateName.txt
@@ -62,26 +69,26 @@ temp() {
                 echo ''
                 echo "Template name already exists in the default folder, please choose a new template name"
                 echo ''
-                temp
+                ~/scripts/wtcli/fbin/temp
             fi
         else
             echo ''
             echo "Template name already exists in folder"
             echo ''
-            temp
+            ~/scripts/wtcli/fbin/temp
         fi
         
-    #if field is empty collections or folder does not exist
+    #if field is empty collections 
     elif [[ -z $folder ]] 
     then
         echo ""
-        read -p "You have not selected a collection of templates, add to default folder, Y or N? " folderBool
+        read -p "You have not selected a collection of templates, create new collection with Template name? Y or N? " folderBool
         #if user confirms they want a new collection
         if [[ "$folderBool" == 'y' || 'Y' || 'yes' || "Yes" ]]
         then 
             #create collection name and add template to collection
             # read -p "enter new name for collection of templates" collectionName
-            cd Templates/
+            cd ~/scripts/wtcli/Templates/
             mkdir $folder
             mkdir ./$folder/$templateName
             touch ./$folder/$templateName/$templateName.html
@@ -90,7 +97,8 @@ temp() {
             echo ''
         else
             #user does not want to have template in collection, add to new folder
-            cd Templates/new/
+            #WILL NEED A FIX HERE IF USERS GETS THIS FAR AND CHOOSES YES, THEY MAY OVERWRITE 
+            cd ~/scripts/wtcli/Templates/new/
             mkdir $templateName
             touch ./$templateName/$templateName.html
             echo $desc > ./$templateName/$templateName.txt
@@ -98,21 +106,22 @@ temp() {
             echo ''
         fi
     #if collections folder exists and template name already exists
-    elif [[ -d Templates/"$folder" && -d Templates/"$folder"/"$templateName" ]]
+    elif [[ -d ~/scripts/wtcli/Templates/"$folder" && -d ~/scripts/wtcli/Templates/"$folder"/"$templateName" ]]
     then 
         #restart process
         echo "That template name already exists in the collection, please choose a new name "
-        temp
+        ~/scripts/wtcli/fbin/temp
     else
-        cd Templates/"$folder"
-        mkdir $templateName
-        touch ./$templateName/$templateName.html
-        echo $desc > ./$templateName/$templateName.txt
-        nano ./$templateName/$templateName.html
+        cd ~/scripts/wtcli/Templates/
+        mkdir $folder
+        mkdir ./$folder/$templateName
+        touch ./$folder/$templateName/$templateName.html
+        echo $desc > ./$folder/$templateName/$templateName.txt
+        nano ./$folder/$templateName/$templateName.html
         echo ''
     fi
     echo $workingDir
     cd $workingDir
-    ./fbin/create
+    ~/scripts/wtcli/fbin/create
 }
 temp
