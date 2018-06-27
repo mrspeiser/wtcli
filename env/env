@@ -1,0 +1,5 @@
+yourDir=''
+workingfile=''
+tempCollectionName=''
+matchType='html'
+isRunning='-1'

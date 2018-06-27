@@ -1,0 +1,10 @@
+#!/bin/bash
+
+react-app() {
+    create-react-app $1
+    echo ''
+    echo 'finished'
+    ls
+    ~/scripts/wtcli/fbin/create
+}
+react-app $1

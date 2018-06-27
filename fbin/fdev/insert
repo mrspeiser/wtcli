@@ -1,0 +1,12 @@
+#!/bin/bash
+
+insert() {
+    tempname=$1
+    workingFile=$2
+    setcollection=$(cat ~/scripts/wtcli/env/setcollection.txt);
+    tempPath="~/scripts/wtcli/Templates/$setcollection/$tempname/$tempname.html"
+    #append from to here
+    ~/scripts/wtcli/fbin/fdev/appendfromto $tempPath $workingFile
+    
+}
+insert $1 $2

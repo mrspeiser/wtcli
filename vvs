@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#add show env function below here
+#print the env before running loop
+
+vvs() {
+  read -p "--> " ff
+  if [[ $ff == 'qq' ]]
+  then
+    clear
+    ~/scripts/wtcli/wtcli
+  else
+    ~/scripts/wtcli/fbin/vvs/"$ff"
+    vvs
+  fi
+}
+vvs
+#add function below to check exit code so 
+#the program wont exit if the command
+#you run isn't found
