@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 html
-=======
-rawhtmltags
->>>>>>> 0202f85d480a1c97bb8654b4dc2c09bdb98acde5

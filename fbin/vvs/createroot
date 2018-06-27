@@ -1,0 +1,9 @@
+#create new root directory
+
+createroot() {
+  mkdir $1
+  cp ~/scripts/wtcli/Templates/rootTemp/index.html ./$1/
+  cp ~/scripts/wtcli/Templates/rootTemp/index.css ./$1/
+  cp ~/scripts/wtcli/Templates/rootTemp/index.js ./$1/
+}
+createroot $1

@@ -10,7 +10,7 @@ vvs() {
     clear
     ~/scripts/wtcli/wtcli
   else
-    ~/scripts/wtcli/fbin/vvs/"$ff"
+    ~/scripts/wtcli/fbin/vvs/$ff
     vvs
   fi
 }
