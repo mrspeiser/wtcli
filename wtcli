@@ -7,13 +7,17 @@ echo ""
 echo -e "\x1B[1mHello ${USER}!"
 echo -e '\x1B[0mhere are the possible commands:'
 echo -e ""
+<<<<<<< HEAD
 echo -e "\x1B[1mvvs \x1B[92m(Enter vvs shell)\x1B[0m"
 echo -e ""
+=======
+>>>>>>> 0202f85d480a1c97bb8654b4dc2c09bdb98acde5
 echo -e '\x1B[1mcreate \x1B[92m(Create something that doesnt exist yet)\x1B[0m'
 echo -e '\x1B[1mdevelop \x1B[92m(Develop or modify files with existing templates/code)\x1B[0m'
 echo -e '\x1B[1mdeploy \x1B[92m(Deploy Project or login to a server or deploy with docker)\x1B[0m'
 echo ""
 echo -e 'Type q to quit'
+<<<<<<< HEAD
 echo ""
 read -p 'enter mode: ' mode
 
@@ -22,6 +26,10 @@ read -p 'enter mode: ' mode
 #make a grep function to match the key=value
 #extract value and display here:
 
+=======
+
+read -p 'enter mode: ' mode
+>>>>>>> 0202f85d480a1c97bb8654b4dc2c09bdb98acde5
 
 if [[ $mode == 'create' ]]
 then 
@@ -43,12 +51,15 @@ then
     echo ""
     echo $mode mode started
     echo ""
+<<<<<<< HEAD
 elif [[ $mode == 'vvs' ]]
 then
     echo ""
     clear
     echo "Entering Shell:"
     ~/scripts/wtcli/vvs
+=======
+>>>>>>> 0202f85d480a1c97bb8654b4dc2c09bdb98acde5
 elif [[ $mode == 'q' ]]
 then
     echo ""

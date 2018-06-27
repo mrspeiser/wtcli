@@ -3,10 +3,13 @@
 appendfromto() {
     fromfilePath=$1
     tofilePath=$2
+<<<<<<< HEAD
     workingdir=$(pwd)
     echo $workingdir"/"$tofilePath
     echo $tofilePath
     echo $fromfilePath
     sed "/<body>/r $fromfilePath" $workingdir"/"$tofilePath
+=======
+>>>>>>> 0202f85d480a1c97bb8654b4dc2c09bdb98acde5
 }
 appendfromto $1 $2

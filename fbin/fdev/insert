@@ -2,11 +2,18 @@
 
 insert() {
     tempname=$1
+<<<<<<< HEAD
     workingFile=$2
     setcollection=$(cat ~/scripts/wtcli/env/setcollection.txt);
     tempPath="~/scripts/wtcli/Templates/$setcollection/$tempname/$tempname.html"
     #append from to here
     ~/scripts/wtcli/fbin/fdev/appendfromto $tempPath $workingFile
+=======
+    setcollection=$(cat ~/scripts/wtcli/env/setcollection.txt);
+    tempPath="~/scripts/wtcli/Templates/$setcollection/$tempname/$tempname.html"
+    #append from to here
+
+>>>>>>> 0202f85d480a1c97bb8654b4dc2c09bdb98acde5
     
 }
 insert $1 $2
