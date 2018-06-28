@@ -1,5 +1,7 @@
-yourDir=''
-workingfile=''
-tempCollectionName=''
-matchType='html'
-isRunning='-1'
+isRunning:-1
+yourDir:none
+workingfile:none
+tempCollectionName:none
+matchpattern:body
+placement:after
+

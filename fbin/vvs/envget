@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# get the env variables and echo them
+
+envget() {
+    cat ~/scripts/wtcli/env/env
+}
+
+envget

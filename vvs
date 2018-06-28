@@ -9,6 +9,10 @@ vvs() {
   then
     clear
     ~/scripts/wtcli/wtcli
+  elif [[ $ff == 'env' ]]
+  then 
+    ~/scripts/wtcli/fbin/vvs/envget
+    vvs
   else
     ~/scripts/wtcli/fbin/vvs/$ff
     vvs

@@ -48,6 +48,7 @@ then
     echo ""
     clear
     echo "Entering Shell:"
+    ~/scripts/wtcli/fbin/vvs/envget
     ~/scripts/wtcli/vvs
 elif [[ $mode == 'q' ]]
 then
