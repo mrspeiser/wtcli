@@ -3,7 +3,12 @@
 # get the env variables and echo them
 
 envget() {
-    cat ~/scripts/wtcli/env/env
+    if [[ $1 ]]
+    then
+      ggrep -oP "(?<=$1:).*" ~/scripts/wtcli/env/env
+    else 
+      cat ~/scripts/wtcli/env/env
+    fi
 }
 
-envget
+envget $1

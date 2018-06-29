@@ -2,16 +2,22 @@
 
 #add show env function below here
 #print the env before running loop
-
+echo 'type qq to quit'
 vvs() {
   read -p "--> " ff
   if [[ $ff == 'qq' ]]
   then
     clear
     ~/scripts/wtcli/wtcli
+    ~/scripts/wtcli/fbin/vvs/envset isRunning -1
+
   elif [[ $ff == 'env' ]]
   then 
     ~/scripts/wtcli/fbin/vvs/envget
+    vvs
+  elif [[ $ff == 'ls' ]]
+  then
+    ls
     vvs
   else
     ~/scripts/wtcli/fbin/vvs/$ff

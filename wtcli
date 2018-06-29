@@ -48,6 +48,9 @@ then
     echo ""
     clear
     echo "Entering Shell:"
+    d=$(pwd)
+    ~/scripts/wtcli/fbin/vvs/envset Dir $d
+    ~/scripts/wtcli/fbin/vvs/envset isRunning 1
     ~/scripts/wtcli/fbin/vvs/envget
     ~/scripts/wtcli/vvs
 elif [[ $mode == 'q' ]]
@@ -59,5 +62,5 @@ else
     echo ""
     echo 'Input was not valid, please check your input spelling'
     echo ""
-    ./wtcli
+     ~/scripts/wtcli/wtcli
 fi

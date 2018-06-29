@@ -1,15 +1,7 @@
 #!/bin/bash
 
-#set the values in env file
-# (?<=\=).*
-
-# this pattern below is for MACOS grep with extended pattern support
-# ggrep -oP "(?<=:).*" env
-
 envset() {
-    # cat ~/scripts/wtcli/env/env
-    # ggrep -oP "(?<=:).*" ~/scripts/wtcli/env/env
-    echo key: $1
-    echo value: $2
+    # Need to Write check... IF $1 = <= -1 exit program
+    sed -i -e "s|^$1:.*|$1:$2|" ~/scripts/wtcli/env/env
 }
 envset $1 $2
