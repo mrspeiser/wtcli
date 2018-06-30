@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+add() {
+
+FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+echo $FILE
+PATTERN=$(~/scripts/wtcli/fbin/vvs/envget match)
+echo $PATTERN
+COLLECTION=$(~/scripts/wtcli/fbin/vvs/envget collection)
+echo $TEMPLATE
+TEMP=$(echo ~/scripts/wtcli/Templates/$COLLECTION/$1/$1.html)
+
+
+echo pattern is: + $PATTERN;
+echo templateInput is + $TEMP;
+echo workingfile is + $FILE;
+
+sed -i -e "/$PATTERN/r $TEMP" $FILE;
+# sed '/<body>/r header.txt' index.html
+
+}
+add $1

@@ -49,7 +49,6 @@ then
     clear
     echo "Entering Shell:"
     d=$(pwd)
-    ~/scripts/wtcli/fbin/vvs/envset Dir $d
     ~/scripts/wtcli/fbin/vvs/envset isRunning 1
     ~/scripts/wtcli/fbin/vvs/envget
     ~/scripts/wtcli/vvs

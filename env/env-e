@@ -1,5 +1,5 @@
-isRunning:-1
-Dir:/coding/tests/new
+isRunning:1
+Dir:/Volumes/HDD2/coding/tests/new
 workingfile:index.html
 collection:bootstrap
 match:<body>

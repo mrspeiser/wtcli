@@ -2,11 +2,15 @@
 
 #add show env function below here
 #print the env before running loop
+
 echo 'type qq to quit'
 vvs() {
+  d=$(pwd)
+  ~/scripts/wtcli/fbin/vvs/envset Dir $d
+
   read -p "--> " ff
   if [[ $ff == 'qq' ]]
-  then
+  then 
     clear
     ~/scripts/wtcli/wtcli
     ~/scripts/wtcli/fbin/vvs/envset isRunning -1
@@ -15,9 +19,17 @@ vvs() {
   then 
     ~/scripts/wtcli/fbin/vvs/envget
     vvs
-  elif [[ $ff == 'ls' ]]
-  then
-    ls
+  elif [[ -e /usr/bin/$ff ]]
+  then 
+    read -p "Underlying Command Found Enter full command: " cc
+    echo $cc
+    $cc
+    vvs
+  elif [[ -e /bin/$ff ]]
+  then 
+    read -p "Underlying Command Found Enter full command: " cc
+    echo $cc
+    $cc
     vvs
   else
     ~/scripts/wtcli/fbin/vvs/$ff
