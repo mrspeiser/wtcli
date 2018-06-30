@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+getclosingtag() {
+
+
+PATTERN=$(~/scripts/wtcli/fbin/vvs/envget match)
+RMTAGS="< >"
+NAME=$(tr -d "$RMTAGS" <<< $PATTERN);
+# echo $NAME;
+CLOSINGTAGS=$(echo "</$NAME>")
+echo $CLOSINGTAGS
+
+}
+getclosingtag

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+rmm() {
+
+FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+echo $FILE
+PATTERN=$(~/scripts/wtcli/fbin/vvs/envget match)
+LINESTART=$(~/scripts/wtcli/fbin/vvs/getlinenum $PATTERN)
+
+CLOSINGTAGS=$(~/scripts/wtcli/fbin/vvs/getclosingtag)
+LINEEND=$(~/scripts/wtcli/fbin/vvs/getlinenum $CLOSINGTAGS)
+
+echo $LINESTART
+echo $LINEEND
+# FULLMATCH=$(echo "$PATTERN.*$CLOSINGTAGS")
+
+# LOOP THROUGH STARTING AT LINE-START + 1
+# REMOVE LINE UNTIL LINE-END - 1
+
+}
+rmm $1

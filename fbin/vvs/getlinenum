@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+getlinenum() {
+
+FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+PATTERN=$(~/scripts/wtcli/fbin/vvs/envget match)
+
+LINE=$(grep -n "$1" $FILE)
+
+echo $LINE
+
+}
+getlinenum $1
