@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+getlinenumend() {
+
+FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+
+LINE=$(grep -n "$1" $FILE)
+echo $LINE | grep -E -o '[0-9]+' | tail -1
+
+}
+getlinenumend $1
+# $1 is PATTERN as INPUT

@@ -3,12 +3,12 @@
 
 getlinenum() {
 
+
 FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
-PATTERN=$(~/scripts/wtcli/fbin/vvs/envget match)
 
 LINE=$(grep -n "$1" $FILE)
-
-echo $LINE
+echo $LINE | grep -E -o '[0-9]+' | grep -m1 '[0-9]'
 
 }
 getlinenum $1
+# $1 is PATTERN as INPUT

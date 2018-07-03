@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+rmv() {
+
+FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+echo removing data from first to last match from: $FILE
+LINESTART=$(~/scripts/wtcli/fbin/vvs/getlinenum $1)
+LINEEND=$(~/scripts/wtcli/fbin/vvs/getlinenumend $1)
+
+echo line start $LINESTART
+echo line end $LINEEND
+
+sed -i -e "$LINESTART,${LINEEND}d" $FILE
+# sed "15,97d" $FILE
+
+}
+rmv $1
+
+# $1 is not necessary at the moment. The Pattern that is matched is in ENV

@@ -9,14 +9,17 @@ PATTERN=$(~/scripts/wtcli/fbin/vvs/envget match)
 LINESTART=$(~/scripts/wtcli/fbin/vvs/getlinenum $PATTERN)
 
 CLOSINGTAGS=$(~/scripts/wtcli/fbin/vvs/getclosingtag)
-LINEEND=$(~/scripts/wtcli/fbin/vvs/getlinenum $CLOSINGTAGS)
+LINEEND=$(~/scripts/wtcli/fbin/vvs/getlinenumend $PATTERN)
 
-echo $LINESTART
-echo $LINEEND
+# echo "THE CLOSING TAGS ARE: $CLOSINGTAGS"
+echo line start $LINESTART
+echo line end $LINEEND
 # FULLMATCH=$(echo "$PATTERN.*$CLOSINGTAGS")
 
-# LOOP THROUGH STARTING AT LINE-START + 1
-# REMOVE LINE UNTIL LINE-END - 1
+sed -i -e "$LINESTART,${LINEEND}d" $FILE
+# sed "15,97d" $FILE
 
 }
 rmm $1
+
+# $1 is not necessary at the moment. The Pattern that is matched is in ENV
