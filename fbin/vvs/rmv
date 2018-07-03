@@ -17,4 +17,5 @@ sed -i -e "$LINESTART,${LINEEND}d" $FILE
 }
 rmv $1
 
-# $1 is not necessary at the moment. The Pattern that is matched is in ENV
+# $1 is  necessary and will get the line number of
+# the pattern you pass in

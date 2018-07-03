@@ -8,7 +8,8 @@ FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
 
 LINE=$(grep -n "$1" $FILE)
 echo $LINE | grep -E -o '[0-9]+' | grep -m1 '[0-9]'
-
+# other syntax: 
+# sed -n "/$1/ =" $FILE
 }
 getlinenum $1
 # $1 is PATTERN as INPUT

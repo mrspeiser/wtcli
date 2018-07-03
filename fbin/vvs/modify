@@ -1,0 +1,12 @@
+#!/bin/bash
+
+modify() {
+    MATCH=${1:-word}
+    echo $MATCH
+    REPLACEMENT=${2:-replacement}
+    echo $REPLACEMENT
+    FILE=${3:-filename}
+    echo $FILE
+
+}
+modify $1 $2 $3

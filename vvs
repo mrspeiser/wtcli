@@ -17,19 +17,18 @@ vvs() {
 
   elif [[ $ff == 'env' ]]
   then 
+    echo ""
     ~/scripts/wtcli/fbin/vvs/envget
     vvs
   elif [[ -e /usr/bin/$ff ]]
   then 
     read -p "Underlying Command Found Enter full command: " cc
-    echo $cc
-    $cc
+    eval $cc
     vvs
   elif [[ -e /bin/$ff ]]
   then 
     read -p "Underlying Command Found Enter full command: " cc
-    echo $cc
-    $cc
+    eval $cc
     vvs
   else
     ~/scripts/wtcli/fbin/vvs/$ff
@@ -37,6 +36,4 @@ vvs() {
   fi
 }
 vvs
-#add function below to check exit code so 
-#the program wont exit if the command
-#you run isn't found
+
