@@ -1,0 +1,13 @@
+#!/bin/bash
+
+modifyln() {
+
+FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+
+sed "${1}s///" $FILE
+echo $1 | sed "s/$2/$2=\"$3\"/" $FILE
+}
+modifyln $1 $2
+# $1 is line number 
+# $2 is attribute name and 
+# $3 is replacement data

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+getmatches() {
+
+  FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+  grep -n "$1" $FILE
+
+}
+getmatches $1 

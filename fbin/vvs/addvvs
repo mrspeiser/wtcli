@@ -1,0 +1,13 @@
+#!/bin/bash
+
+addvvs(){
+
+echo "#!/bin/bash"
+echo "$1() {"
+echo ""
+echo "}"
+echo "$1 \$1"
+
+}
+addvvs $1 >> ~/scripts/wtcli/fbin/vvs/$1 && chmod 755 ~/scripts/wtcli/fbin/vvs/$1
+

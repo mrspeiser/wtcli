@@ -1,0 +1,6 @@
+#!/bin/bash
+echototext() {
+  echo creating new text file "$1" in env folder
+  ~/scripts/wtcli/fbin/vvs/echodollar1 $1 >> ~/scripts/wtcli/env/$1.txt
+}
+echototext $1

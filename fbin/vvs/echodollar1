@@ -1,0 +1,5 @@
+#!/bin/bash
+echodollar1() {
+  echo $1
+}
+echodollar1 $1
