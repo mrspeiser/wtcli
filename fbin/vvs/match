@@ -1,0 +1,6 @@
+#!/bin/bash
+
+match() {
+  ~/scripts/wtcli/fbin/vvs/envset match $1
+}
+match $1

@@ -1,0 +1,8 @@
+#!/bin/bash
+parsesections() {
+  # get working file
+  # go through each line in the document
+  # if line matches vvsSOMETHING
+  # Write it to project: vvsSOMETHING vvsSOMETHINGELSE
+}
+parsesections $1

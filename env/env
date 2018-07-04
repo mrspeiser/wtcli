@@ -1,7 +1,10 @@
 isRunning:-1
-Dir:/coding/tests/new
+Dir:/Users/matthewspeiser/scripts/wtcli
 workingfile:index.html
 collection:bootstrap
 match:<body>
 placement:after
+cssframework:'none'
+selected:'none'
+project:''
 

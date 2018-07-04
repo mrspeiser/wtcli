@@ -1,0 +1,7 @@
+#!/bin/bash
+selectchild() {
+  # get currently selected html tag
+  # find next opening tag if next tag is </ then no child
+  
+}
+selectchild $1
