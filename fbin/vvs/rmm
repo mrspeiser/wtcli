@@ -16,7 +16,7 @@ echo line start $LINESTART
 echo line end $LINEEND
 # FULLMATCH=$(echo "$PATTERN.*$CLOSINGTAGS")
 
-sed -i -e "$LINESTART,${LINEEND}d" $FILE
+sed -i -e "$LINESTART,${LINEEND} d" $FILE
 # sed "15,97d" $FILE
 
 }

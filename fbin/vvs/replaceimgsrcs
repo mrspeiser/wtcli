@@ -1,0 +1,7 @@
+#!/bin/bash
+replaceimgsrcs() {
+    FILE=$(~/scripts/wtcli/fbin/vvs/envget workingfile)
+    sed -i -e "s|\(<img\) \(src=".*"\) \(class=...*>\)|\1 src=\"$1\" \3|" $FILE
+}
+replaceimgsrcs $1
+# $1 is image url or path to image

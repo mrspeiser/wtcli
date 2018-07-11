@@ -11,7 +11,7 @@ LINEEND=$(~/scripts/wtcli/fbin/vvs/getlinenumend $1)
 echo line start $LINESTART
 echo line end $LINEEND
 
-sed -i -e "$LINESTART,${LINEEND}d" $FILE
+sed -i -e "$LINESTART,${LINEEND} d" $FILE
 # sed "15,97d" $FILE
 
 }

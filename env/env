@@ -1,10 +1,13 @@
 isRunning:-1
-Dir:/Users/matthewspeiser/scripts/wtcli
+Dir:/Volumes/HDD2/coding/coalitiontest/coalition
 workingfile:index.html
 collection:bootstrap
-match:<body>
+match:<head>
 placement:after
 cssframework:'none'
-selected:'none'
+jsframework:'none'
+workingsection:'none'
+sectionstartline:'none'
+sectionendline:'none'
 project:''
 
